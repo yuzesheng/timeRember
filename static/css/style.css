@@ -1,0 +1,34 @@
+/* 星场画布放在底层且不拦截鼠标事件 */
+#starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+/* 遮罩层设置在中间，如需点击其他元素可关闭拦截 */
+.home-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* 如果其中没有交互元素，可禁用拦截 */
+  pointer-events: none;
+}
+
+/* 登录链接鼠标悬停变红 */
+.navbar .login-link:hover {
+  color: red !important;
+}
+
+/* 注册链接鼠标悬停变红 */
+.navbar .signup-link:hover {
+  color: red !important;
+}
+.navbar .nav-link {
+  transition: color 0.3s ease;
+}

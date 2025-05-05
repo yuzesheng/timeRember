@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h3>注册</h3>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.username.label_tag }}{{ form.username }}{% for err in form.username.errors %}
+                    <div class="text-danger">{{ err }}</div>{% endfor %}
+                {{ form.password1.label_tag }}{{ form.password1 }}{% for err in form.password1.errors %}
+                    <div class="text-danger">{{ err }}</div>{% endfor %}
+                {{ form.password2.label_tag }}{{ form.password2 }}{% for err in form.password2.errors %}
+                    <div class="text-danger">{{ err }}</div>{% endfor %}
+                {{ form.email.label_tag }}{{ form.email }}{% for err in form.email.errors %}
+                    <div class="text-danger">{{ err }}</div>{% endfor %}
+                <br>
+                <div class="mb-3">
+                    <img id="captcha_img" src="{% url 'captcha' %}" alt="验证码">
+                    <a href="#"
+                       onclick="document.getElementById('captcha_img').src='{% url 'captcha' %}?'+Math.random();return false;">换一张</a>
+                </div>
+                {{ form.captcha }}{% for err in form.captcha.errors %}
+                    <div class="text-danger">{{ err }}</div>{% endfor %}
+                <button class="btn btn-primary mt-3" type="submit">注册</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
