@@ -44,10 +44,12 @@ class RegisterForm(forms.ModelForm):
 
 class LoginForm(forms.Form):
     username = forms.CharField(
+        label='用户名',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': '用户名'}),
         error_messages={'required': '请输入用户名'}
     )
     password = forms.CharField(
+        label='密码',
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': '密码'}),
         error_messages={'required': '请输入密码'}
     )
@@ -60,10 +62,12 @@ class LoginForm(forms.Form):
 
 class ResetPasswordForm(forms.Form):
     username = forms.CharField(
+        label='用户名',
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': '用户名'}),
         error_messages={'required': '请输入用户名'}
     )
     email = forms.EmailField(
+        label='邮箱',
         widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': '邮箱'}),
         error_messages={'required': '请输入邮箱', 'invalid': '邮箱格式不正确'}
     )
